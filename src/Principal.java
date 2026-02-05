@@ -89,5 +89,7 @@ public class Principal {
         for (Pessoa pessoa : listaDePessoas) {
             System.out.println(pessoa);
         }
+
+        filmeKelwyn.toString();
     }
 }
