@@ -2,7 +2,10 @@ import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
+import br.com.alura.screenmatch.modelos.Pessoa;
 import br.com.alura.screenmatch.modelos.Serie;
+
+import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
@@ -50,5 +53,41 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        Filme filmeKelwyn = new Filme();
+        filmeKelwyn.setNome("o filme");
+        filmeKelwyn.setDuracaoEmMinutos(198);
+        filmeKelwyn.setAnoDeLancamento(2002);
+        filmeKelwyn.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+
+        listaDeFilmes.add(filmeKelwyn);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+
+        System.out.println("tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("primeiro filme da lista: " + listaDeFilmes.get(0).getNome());
+
+        System.out.println(listaDeFilmes.toString());
+
+        ArrayList<Pessoa> listaDePessoas = new ArrayList<>();
+
+        Pessoa pessoa1 = new Pessoa("Joao", 23);
+        Pessoa pessoa2 = new Pessoa("Jose", 21);
+        Pessoa pessoa3 = new Pessoa("joaquin", 27);
+
+        listaDePessoas.add(pessoa1);
+        listaDePessoas.add(pessoa2);
+        listaDePessoas.add(pessoa3);
+
+        System.out.println("Tamanho da lista: " + listaDePessoas.size());
+
+        System.out.println("Primeira Pessoa: " + listaDePessoas.get(0));
+
+        System.out.println("Lista de Pessoas:");
+        for (Pessoa pessoa : listaDePessoas) {
+            System.out.println(pessoa);
+        }
     }
 }
