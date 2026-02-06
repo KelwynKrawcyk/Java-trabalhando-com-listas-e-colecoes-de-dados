@@ -1,17 +1,13 @@
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
-import br.com.alura.screenmatch.modelos.Episodio;
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Pessoa;
-import br.com.alura.screenmatch.modelos.Serie;
+import br.com.alura.screenmatch.modelos.*;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso chefão");
-        meuFilme.setAnoDeLancamento(1970);
+        Filme meuFilme = new Filme("O poderoso chefão", 1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
@@ -25,18 +21,14 @@ public class Principal {
         //meuFilme.totalDeAvaliacoes = 1;
         //System.out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("Lost",2000);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
-        outroFilme.setAnoDeLancamento(2023);
+        Filme outroFilme = new Filme("Avatar", 2023);
         outroFilme.setDuracaoEmMinutos(200);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
@@ -54,10 +46,8 @@ public class Principal {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        Filme filmeKelwyn = new Filme();
-        filmeKelwyn.setNome("o filme");
+        Filme filmeKelwyn = new Filme("o filme", 2002);
         filmeKelwyn.setDuracaoEmMinutos(198);
-        filmeKelwyn.setAnoDeLancamento(2002);
         filmeKelwyn.avalia(10);
 
         ArrayList<Filme> listaDeFilmes = new ArrayList<>();
@@ -91,5 +81,28 @@ public class Principal {
         }
 
         filmeKelwyn.toString();
+
+        Produto produto1 = new Produto("Sampoo", 12.10,50);
+        Produto produto2 = new Produto("Sabonete", 1.50, 29);
+        Produto produto3 = new Produto("Condicionador", 15.0, 42);
+
+        ArrayList<Produto> listaDeProdutos = new ArrayList<>();
+        listaDeProdutos.add(produto1);
+        listaDeProdutos.add(produto2);
+        listaDeProdutos.add(produto3);
+
+
+
+        System.out.println("O tamanho da lista de produtos é: " + listaDeProdutos.size());
+        for (Produto produto : listaDeProdutos){
+            System.out.println(produto);
+        }
+
+        System.out.println("Produto na posição 0: " + listaDeProdutos.get(0).getNome());
+
+
+        produtoPerecivel produto4 = new produtoPerecivel("Ovo", 2.50, 12, "25/12/2026");
+        System.out.println(produto4);
+
     }
 }
